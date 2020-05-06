@@ -47,11 +47,11 @@ namespace Lab4
                 }
             }
 
-            for (int i = 0; i < n*m; i++)
+            for (int i = -100; i <= 100; i++)
             {
                 bool found = false;
                 int count = 0;
-                foreach (byte x in matrix)
+                foreach (int x in matrix)
                     if (x == i)
                     {
                         found = true;
