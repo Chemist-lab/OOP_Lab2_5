@@ -5,7 +5,7 @@ namespace Lab4
 {
     class Program
     {
-        public static int i, j;
+        public static int min, max;
         static int Matrix()
         {
             Console.WriteLine("Enter n: ");
@@ -19,35 +19,51 @@ namespace Lab4
 
             int[,] matrix = new int[n, m];
 
-            
-
             if (info.ToLower() == "m")
             {
                 Console.WriteLine("Enter matrix: ");
-                for (i = 0; i < n; i++)
+                for (int i = 0; i < n; i++)
                 {
-                    for (j = 0; j < m; j++)
+                    for (int j = 0; j < m; j++)
                     {
                         matrix[i, j] = int.Parse(Console.ReadLine());
                     }
                 }
             }
-
             if (info == "r")
             {
                 Random rand = new Random();
-                for (i = 0; i < n; i++)
+                for (int i = 0; i < n; i++)
                 {
-                    for (j = 0; j < m; j++)
+                    for (int j = 0; j < m; j++)
                     {
                         matrix[i,j] = rand.Next(-100, 100);
 
-                        Console.WriteLine("---------"+ matrix[i,j]);
+                        Console.WriteLine("--------- "+ matrix[i,j]);
                     }
                 }
             }
-
-            for (int i = -100; i <= 100; i++)
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    if (min > matrix[i,j])
+                    {
+                        min = matrix[i,j];
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    if (max < matrix[i,j])
+                    {
+                        max = matrix[i,j];
+                    }
+                }
+            }
+            for (int i = min; i <= max; i++)
             {
                 bool found = false;
                 int count = 0;
