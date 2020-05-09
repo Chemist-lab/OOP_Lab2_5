@@ -5,7 +5,6 @@ namespace Lab4
 {
     class Program
     {
-        public static int min, max;
         static int Matrix()
         {
             Console.WriteLine("Enter n: ");
@@ -43,6 +42,7 @@ namespace Lab4
                     }
                 }
             }
+            int min = matrix[0,0], max = matrix[0,0];
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
